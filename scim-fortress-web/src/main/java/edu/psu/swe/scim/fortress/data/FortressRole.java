@@ -83,6 +83,10 @@ public class FortressRole extends ScimResource {
   @ScimAttribute(type=Type.INTEGER, description="Get the unique ID that is to be associated with a particular audit record in directory.")
   private String modId;
   
+  @XmlElement(name="role_member")
+  @ScimAttribute(description="The members of this role")
+  
+  private Set<RoleMember> roleMemberSet;
   public FortressRole() {
     super(SCHEMA_URI);
   }
