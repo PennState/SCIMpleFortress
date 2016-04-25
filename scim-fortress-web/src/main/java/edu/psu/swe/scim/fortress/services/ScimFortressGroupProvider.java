@@ -17,33 +17,33 @@ import edu.psu.swe.scim.spec.protocol.search.Filter;
 import edu.psu.swe.scim.spec.protocol.search.PageRequest;
 import edu.psu.swe.scim.spec.protocol.search.SortRequest;
 import edu.psu.swe.scim.spec.resources.ScimExtension;
-import edu.psu.swe.scim.spec.resources.ScimUser;
+import edu.psu.swe.scim.spec.resources.ScimGroup;
 import lombok.extern.slf4j.Slf4j;
 
 @Stateless
 @Slf4j
-public class ScimFortressUserProvider implements Provider<ScimUser> {
+public class ScimFortressGroupProvider implements Provider<ScimGroup> {
   
   @Override
-  public ScimUser create(ScimUser resource) throws UnableToCreateResourceException {
+  public ScimGroup create(ScimGroup resource) throws UnableToCreateResourceException {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public ScimUser update(ScimUser resource) throws UnableToUpdateResourceException {
+  public ScimGroup update(ScimGroup resource) throws UnableToUpdateResourceException {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public ScimUser get(String id) throws UnableToRetrieveResourceException {
+  public ScimGroup get(String id) throws UnableToRetrieveResourceException {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public List<ScimUser> find(Filter filter, PageRequest pageRequest, SortRequest sortRequest) throws UnableToRetrieveResourceException {
+  public List<ScimGroup> find(Filter filter, PageRequest pageRequest, SortRequest sortRequest) throws UnableToRetrieveResourceException {
     // TODO Auto-generated method stub
     return null;
   }
