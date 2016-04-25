@@ -43,11 +43,15 @@
         <artifactId>swagger-documentation</artifactId>
         <version>0.1.0</version>
       </dependency>
-
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
         <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+	    <groupId>org.apache.directory.fortress</groupId>
+	    <artifactId>fortress-core</artifactId>
+	    <version>1.0.0</version>
       </dependency>
 
 
