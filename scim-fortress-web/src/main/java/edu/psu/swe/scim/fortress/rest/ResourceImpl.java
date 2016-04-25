@@ -1,6 +1,6 @@
 package edu.psu.swe.scim.fortress.rest;
 
-import edu.psu.swe.scim.fortress.services.Service;
+import edu.psu.swe.scim.fortress.services.ScimFortressUserProvider;
 
 import java.lang.Override;
 import javax.inject.Inject;
@@ -14,7 +14,7 @@ public class ResourceImpl implements Resource {
   private static final Logger LOG = LoggerFactory.getLogger(ResourceImpl.class);
   
   @Inject
-  private Service service;
+  private ScimFortressUserProvider service;
   
   @Override
   public Response getDemo() {
