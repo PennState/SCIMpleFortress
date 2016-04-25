@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import edu.psu.swe.scim.fortress.data.FortressRole;
 import edu.psu.swe.scim.server.exception.InvalidProviderException;
 import edu.psu.swe.scim.server.exception.UnableToRetrieveExtensionsException;
 import edu.psu.swe.scim.server.provider.ProviderRegistry;
@@ -31,11 +32,16 @@ public class ScimConfigurator implements ServletContextListener {
   @Inject
   private Instance<ScimFortressGroupProvider> groupProviderInstance;
 
+  @Inject
+  private Instance<ScimFortressRoleProvider> roleProviderInstance;
+  
   @Override
   public void contextInitialized(ServletContextEvent sce) {
     try {
       providerRegistry.registerProvider(ScimUser.class, userProviderInstance);
       providerRegistry.registerProvider(ScimGroup.class, groupProviderInstance);
+      providerRegistry.registerProvider(FortressRole.class, roleProviderInstance);
+      
     } catch (InvalidProviderException | JsonProcessingException | UnableToRetrieveExtensionsException e) {
       e.printStackTrace();
     }
