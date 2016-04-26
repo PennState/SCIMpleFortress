@@ -13,7 +13,7 @@ import org.apache.directory.fortress.core.ReviewMgr;
 import org.apache.directory.fortress.core.SecurityException;
 import org.apache.directory.fortress.core.model.Role;
 
-import edu.psu.swe.scim.fortress.data.FortressRole;
+import edu.psu.swe.scim.fortress.data.ScimFortressRole;
 import edu.psu.swe.scim.fortress.util.Converter;
 import edu.psu.swe.scim.server.exception.UnableToCreateResourceException;
 import edu.psu.swe.scim.server.exception.UnableToDeleteResourceException;
@@ -27,7 +27,7 @@ import edu.psu.swe.scim.spec.protocol.search.SortRequest;
 import edu.psu.swe.scim.spec.resources.ScimExtension;
 
 @Slf4j
-public class ScimFortressRoleProvider implements Provider<FortressRole> {
+public class ScimFortressRoleProvider implements Provider<ScimFortressRole> {
 
   @Inject
   private ReviewMgr reviewMgr_;
@@ -36,33 +36,33 @@ public class ScimFortressRoleProvider implements Provider<FortressRole> {
   private AdminMgr adminMgr_;
 	
   @Override
-  public FortressRole create(FortressRole resource) throws UnableToCreateResourceException {
+  public ScimFortressRole create(ScimFortressRole resource) throws UnableToCreateResourceException {
 	Role role;
 	  
     try {
-		role = adminMgr_.addRole(Converter.convertScimFortressRoleToFortressRole(resource));
+		role = adminMgr_.addRole(Converter.convertScimFortressRoleToRole(resource));
 	} catch (SecurityException e) {
 		throw new UnableToCreateResourceException(Status.INTERNAL_SERVER_ERROR, "Error updating role " + e.getMessage());
 	}
     
-    return Converter.convertFortressRoleToScimFortressRole(role);
+    return Converter.convertRoleToScimFortressRole(role);
   }
 
   @Override
-  public FortressRole update(FortressRole resource) throws UnableToUpdateResourceException {
+  public ScimFortressRole update(ScimFortressRole resource) throws UnableToUpdateResourceException {
 	Role role;
 	  
     try {
-		role = adminMgr_.updateRole(Converter.convertScimFortressRoleToFortressRole(resource));
+		role = adminMgr_.updateRole(Converter.convertScimFortressRoleToRole(resource));
 	} catch (SecurityException e) {
 		throw new UnableToUpdateResourceException(Status.INTERNAL_SERVER_ERROR, "Error updating role " + e.getMessage());
 	}
     
-    return Converter.convertFortressRoleToScimFortressRole(role);
+    return Converter.convertRoleToScimFortressRole(role);
   }
 
   @Override
-  public FortressRole get(String id) throws UnableToRetrieveResourceException {
+  public ScimFortressRole get(String id) throws UnableToRetrieveResourceException {
 	log.debug("Getting role with id {}", id);
 	  
     Role role;
@@ -75,11 +75,11 @@ public class ScimFortressRoleProvider implements Provider<FortressRole> {
 		throw new UnableToRetrieveResourceException(Status.INTERNAL_SERVER_ERROR, "Security exception retreiving resource", e);
 	}
 	
-    return Converter.convertFortressRoleToScimFortressRole(role);
+    return Converter.convertRoleToScimFortressRole(role);
   }
 
   @Override
-  public List<FortressRole> find(Filter filter, PageRequest pageRequest, SortRequest sortRequest) throws UnableToRetrieveResourceException {
+  public List<ScimFortressRole> find(Filter filter, PageRequest pageRequest, SortRequest sortRequest) throws UnableToRetrieveResourceException {
     
     return null;
   }

@@ -2,12 +2,12 @@ package edu.psu.swe.scim.fortress.util;
 
 import org.apache.directory.fortress.core.model.Role;
 
-import edu.psu.swe.scim.fortress.data.FortressRole;
+import edu.psu.swe.scim.fortress.data.ScimFortressRole;
 
 public class Converter {
 	
-  public static FortressRole convertFortressRoleToScimFortressRole(Role role){
-	  FortressRole fortressRole = new FortressRole();
+  public static ScimFortressRole convertRoleToScimFortressRole(Role role){
+	  ScimFortressRole fortressRole = new ScimFortressRole();
 	  fortressRole.setName(role.getName());
 	  fortressRole.setId(role.getName());
 	  fortressRole.setBeginDate(role.getBeginDate());
@@ -23,11 +23,11 @@ public class Converter {
 	  fortressRole.setModId(role.getModId());
 	  fortressRole.setParentList(role.getParents());
 	  fortressRole.setTimeout(role.getTimeout());
-	  
-	  return fortressRole;
+  
+  return fortressRole;
   }
   
-  public static Role convertScimFortressRoleToFortressRole(FortressRole fortressRole){
+  public static Role convertScimFortressRoleToRole(ScimFortressRole fortressRole){
 	  Role role = new Role();
 	  role.setName(fortressRole.getName());
 	  role.setBeginDate(fortressRole.getBeginDate());
