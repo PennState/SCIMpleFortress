@@ -15,10 +15,10 @@ import lombok.EqualsAndHashCode;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.NONE)
-@ScimResourceType(id = FortressRole.SCHEMA_URI, name = FortressRole.RESOURCE_NAME, schema = FortressRole.SCHEMA_URI, description = "Resource for representing Fortress Roles", endpoint = "/Roles")
+@ScimResourceType(id = ScimFortressRole.SCHEMA_URI, name = ScimFortressRole.RESOURCE_NAME, schema = ScimFortressRole.SCHEMA_URI, description = "Resource for representing Fortress Roles", endpoint = "/Roles")
 @Data
 @EqualsAndHashCode(callSuper=true)
-public class FortressRole extends ScimResource {
+public class ScimFortressRole extends ScimResource {
   public static final String SCHEMA_URI = "edu:psu:fortress:params:scim:schemas:Role";
   public static final String RESOURCE_NAME = "FortressRole";
   
@@ -85,8 +85,8 @@ public class FortressRole extends ScimResource {
   @XmlElement(name="role_member")
   @ScimAttribute(description="The members of this role")
   private Set<RoleMember> roleMemberSet;
-  
-  public FortressRole() {
+
+  public ScimFortressRole() {
     super(SCHEMA_URI);
   }
 

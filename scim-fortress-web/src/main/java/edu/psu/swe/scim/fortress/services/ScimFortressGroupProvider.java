@@ -2,11 +2,7 @@ package edu.psu.swe.scim.fortress.services;
 
 import java.util.List;
 
-import javax.ejb.Stateless;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import lombok.extern.slf4j.Slf4j;
 import edu.psu.swe.scim.server.exception.UnableToCreateResourceException;
 import edu.psu.swe.scim.server.exception.UnableToDeleteResourceException;
 import edu.psu.swe.scim.server.exception.UnableToRetrieveExtensionsException;
@@ -18,9 +14,7 @@ import edu.psu.swe.scim.spec.protocol.search.PageRequest;
 import edu.psu.swe.scim.spec.protocol.search.SortRequest;
 import edu.psu.swe.scim.spec.resources.ScimExtension;
 import edu.psu.swe.scim.spec.resources.ScimGroup;
-import lombok.extern.slf4j.Slf4j;
 
-@Stateless
 @Slf4j
 public class ScimFortressGroupProvider implements Provider<ScimGroup> {
   
