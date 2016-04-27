@@ -1,13 +1,15 @@
 package edu.psu.swe.scim.fortress.data;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 import edu.psu.swe.scim.spec.annotation.ScimAttribute;
-import edu.psu.swe.scim.spec.schema.Schema.Attribute.Type;
 import lombok.Data;
 
 @XmlType
+@XmlAccessorType(XmlAccessType.NONE)
 @Data
 public class RoleMember {
 
@@ -20,7 +22,7 @@ public class RoleMember {
   private String name;
   
   @XmlElement
-  @ScimAttribute(type=Type.INTEGER, description="The integer timeout that contains max time (in seconds) that entity may remain inactive. This attribute is optional but if set will be validated for reasonableness.")
+  @ScimAttribute(description="The integer timeout that contains max time (in seconds) that entity may remain inactive. This attribute is optional but if set will be validated for reasonableness.")
   private Integer timeout;
   
   @XmlElement

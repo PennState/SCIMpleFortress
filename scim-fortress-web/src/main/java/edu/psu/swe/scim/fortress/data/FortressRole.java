@@ -10,7 +10,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import edu.psu.swe.scim.spec.annotation.ScimAttribute;
 import edu.psu.swe.scim.spec.annotation.ScimResourceType;
 import edu.psu.swe.scim.spec.resources.ScimResource;
-import edu.psu.swe.scim.spec.schema.Schema.Attribute.Type;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -72,21 +71,21 @@ public class FortressRole extends ScimResource {
   private String endTime;
 
   @XmlElement
-  @ScimAttribute(type=Type.INTEGER, description="Return the integer timeout that contains total time (in seconds) that Role may remain inactive in User's session before it is deactivated. This attribute is optional but if set will be validated for reasonableness.")
+  @ScimAttribute(description="Return the integer timeout that contains total time (in seconds) that Role may remain inactive in User's session before it is deactivated. This attribute is optional but if set will be validated for reasonableness.")
   private Integer timeout;
   
   @XmlElement
-  @ScimAttribute(type=Type.INTEGER, description="Contains the Fortress modification code to be associated with an audit record.  This is the ObjectName.methodName for the Manager API that was called.")
+  @ScimAttribute(description="Contains the Fortress modification code to be associated with an audit record.  This is the ObjectName.methodName for the Manager API that was called.")
   private String modCode;
 
   @XmlElement
-  @ScimAttribute(type=Type.INTEGER, description="Get the unique ID that is to be associated with a particular audit record in directory.")
+  @ScimAttribute(description="Get the unique ID that is to be associated with a particular audit record in directory.")
   private String modId;
   
   @XmlElement(name="role_member")
   @ScimAttribute(description="The members of this role")
-  
   private Set<RoleMember> roleMemberSet;
+  
   public FortressRole() {
     super(SCHEMA_URI);
   }
